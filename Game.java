@@ -18,7 +18,9 @@ public class Game extends JFrame implements KeyListener{
 
         b = new Board();
         add(b);
-        setSize(750,750);
+        b.setPreferredSize(new Dimension(740,740));
+        pack();
+        //setSize(750,750);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
@@ -37,6 +39,10 @@ public class Game extends JFrame implements KeyListener{
 
         if(e.getKeyCode()>=37&&e.getKeyCode()<=40){
             b.move(e);
+            b.RandomNum();
+            try {
+                Thread.sleep(100);
+            }catch (InterruptedException exception){}
             super.repaint();
         }
     }

@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.util.HashMap;
 
 /**
  * Created by Dom's Computer on 2017-03-05.
@@ -18,12 +19,31 @@ public class Colors {
     Color n1024 = new Color(237,197,63);
     Color n2048 = new Color(237,194,46);
 
+    HashMap map;
 
     public Colors(){
 
+        map = new HashMap(12);
+
+        map.put(0,n0);
+        map.put(2,n2);
+        map.put(4,n4);
+        map.put(8,n8);
+        map.put(16,n16);
+        map.put(32,n32);
+        map.put(64,n64);
+        map.put(128,n128);
+        map.put(256,n256);
+        map.put(512,n512);
+        map.put(1024,n1024);
+        map.put(2048,n2048);
     }
     public Color getColor(int x){
+        Color c = (Color) map.get(x);
 
-        Color c = "c"+x;
+        if(c==null)
+            c = (Color) map.get(2048);
+
+        return c;
     }
 }
